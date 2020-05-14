@@ -1,47 +1,46 @@
-# a = int(input('Enter a number: '))
-# b = int(input('Enter another number: '))
-#
-# if a < b:
-#     print('First number is smaller than second')
-# elif a == b:
-#     print('Numbers are equal ')
-# else:
-#     print('First number is bigger than second')
+import random
 
-# text = 'Zen of Python'
-# print(text[5])
-# print(text[7])
-# print(text[0:3])
-# print(text[7:13])
-# print(text[::-1])
-# print(text.split())
-# print(text.replace('Zen', 'Programming'))
+number = 0
+suma = 0
+while (number >= 0):
+    number = int(input('iveskite skaiciu: '))
+    suma += number
+    print(suma)
+    if (number < 0):
+        print('suma yra ' + str(suma))
+        break
+words = []
 
-# a = int(input('Enter a number: '))
-# b = int(input('Enter another number: '))
-# action = int(input('Choose an action: \n'
-#                    '1 for *\n'
-#                    '2 for / \n'
-#                    '3 for + \n'
-#                    '4 for - \n'))
-# if action == 1:
-#     print(a * b)
-# elif action == 2:
-#     print(a / b)
-# elif action == 3:
-#     print(a + b)
-# elif action == 4:
-#     print(a - b)
-# else:
-#     print('You have typed in wrong number')
+for word in range(5):
+    words.append(str(input('Isveskite zodi ')));
 
-# a = int(input('Enter a number: '))
+for word in words:
+    ilgis = len(word)
+    skaicius = words.index(word)
+    print(word + ', zodzio ilgis yra ' + str(ilgis) + ' simboliai. Jo vieta sarase yra: ' + str(skaicius))
 
-# if a % 2 == 0:
-#     print('Skaicius yra lyginis')
-# elif a % 2 != 0:
-#     print('Skaicius yra nelyginis')
-#     if a % 3 == 0:
-#         print('Skaicius dalinasi is 3')
-#     else:
-#         print('Bet nesidalina is 3')
+for skaiciu in range(3):
+    x = random.randint(1, 6)
+    print(x)
+    if (x == 5):
+        print('tu pralaimejai')
+        break
+    else:
+        print('tu laimejai')
+
+years = int(input('Iveskite metus: '))
+
+if (years % 400 == 0) or (years % 4 == 0 and years % 100 != 0):
+    print('keliamieji')
+else:
+    print('nekeliamieji')
+
+
+years = range(1900, 2024, 4)
+
+for year in years:
+    if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+        print(year, 'keliamieji')
+    else:
+        print(year, 'nekeliamieji')
+
