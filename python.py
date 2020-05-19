@@ -1,46 +1,58 @@
 import random
+import datetime
+from datetime import timedelta
 
-number = 0
-suma = 0
-while (number >= 0):
-    number = int(input('iveskite skaiciu: '))
-    suma += number
-    print(suma)
-    if (number < 0):
-        print('suma yra ' + str(suma))
+# Pirma uzduotis
+while True:
+    try:
+        number = int(input('Iveskite skaiciu: '));
+        if number > 0:
+            teigiamas = True
+        else:
+            teigiams = False
         break
-words = []
+    except:
+        print('Input must be type of integer')
 
-for word in range(5):
-    words.append(str(input('Isveskite zodi ')));
+print(teigiamas)
+# Pirmos pabaiga
 
-for word in words:
-    ilgis = len(word)
-    skaicius = words.index(word)
-    print(word + ', zodzio ilgis yra ' + str(ilgis) + ' simboliai. Jo vieta sarase yra: ' + str(skaicius))
+# Antra uzduotis
 
-for skaiciu in range(3):
-    x = random.randint(1, 6)
-    print(x)
-    if (x == 5):
-        print('tu pralaimejai')
+date = datetime.datetime.now()
+print(date)
+minus_date = date - timedelta(days=5)
+print(minus_date)
+plus_hours = date + timedelta(hours=8)
+print(plus_hours)
+
+different_date_format = date.strftime("%d %m %Y %I:%M.%S")
+print(different_date_format)
+
+# Antros pabaiga
+
+# Trecia uzduotis
+
+while True:
+    try:
+        d_input = input('Iveskite norima data: (YYYY-MM-DD)')
+        date_input_converted = datetime.datetime.strptime(d_input, "%Y-%m-%d")
+        date = datetime.datetime.now() - date_input_converted
+
+        print(date)
         break
-    else:
-        print('tu laimejai')
+    except:
+        print('blogai ivesta data')
 
-years = int(input('Iveskite metus: '))
+years = date.days // 365
+months = date.days // 30
+weeks = date.days / 7
+days = date.days
+hours = date.total_seconds() / 3600
+minutes = date.total_seconds() / 60
+seconds = date.total_seconds()
 
-if (years % 400 == 0) or (years % 4 == 0 and years % 100 != 0):
-    print('keliamieji')
-else:
-    print('nekeliamieji')
+print(
+    f"{years} metai {months} menesiai {weeks} savaites {days} dienos {hours} valandos {minutes} minutes {seconds} sekundes")
 
-
-years = range(1900, 2024, 4)
-
-for year in years:
-    if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
-        print(year, 'keliamieji')
-    else:
-        print(year, 'nekeliamieji')
-
+# Trecios pabaiga
